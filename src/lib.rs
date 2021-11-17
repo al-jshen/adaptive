@@ -45,6 +45,7 @@ impl SubdivLoss for EuclideanLoss {
     }
 }
 
+#[derive(Debug, Clone)]
 pub struct AdaptiveSampler<F, L>
 where
     F: Fn(f64) -> f64,
