@@ -41,7 +41,12 @@ pub struct EuclideanLoss {}
 
 impl SubdivLoss for EuclideanLoss {
     fn loss(&self, x1: f64, x2: f64, y1: f64, y2: f64) -> f64 {
-        (y2 - y1).powi(2) + (x2 - x1).powi(2)
+        let _loss = (y2 - y1).powi(2) + (x2 - x1).powi(2);
+        if _loss.is_finite() {
+            _loss
+        } else {
+            x2 - x1
+        }
     }
 }
 
